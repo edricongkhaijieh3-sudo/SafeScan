@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { supabase } from './lib/supabase'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
@@ -55,6 +56,7 @@ function App() {
         <FinalCTA onWaitlistUpdate={fetchCount} waitlistCount={displayCount} />
         <Footer />
       </main>
+      <Analytics />
     </div>
   )
 }
