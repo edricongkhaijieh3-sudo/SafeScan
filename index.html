@@ -10,27 +10,28 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Scanguard — Open Links. Scan QR Codes. Fear Nothing." />
     <meta property="og:description" content="Scanguard checks every link, QR code, and file for threats before they reach your device — so you can click freely, always." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="/og-image.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Scanguard — Open Links. Scan QR Codes. Fear Nothing." />
     <meta name="twitter:description" content="Scanguard checks every link, QR code, and file for threats before they reach your device — so you can click freely, always." />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:image" content="/og-image.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK46DVTEDK"></script>
-    <script>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400;500;600;700;800&display=swap" /></noscript>
+    </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Google Analytics deferred so it doesn't block render -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-NK46DVTEDK"></script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-NK46DVTEDK');
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -35,11 +35,11 @@ body {
 
 @keyframes scan-line {
   0%, 100% {
-    top: 10%;
+    transform: translateY(0);
     opacity: 1;
   }
   50% {
-    top: 90%;
+    transform: translateY(150px);
     opacity: 0.8;
   }
 }
@@ -47,6 +47,10 @@ body {
 .animate-scan-line {
   animation: scan-line 1.2s ease-in-out infinite;
   position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  will-change: transform;
 }
 
 @keyframes marquee-scroll {

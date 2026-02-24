@@ -35,6 +35,8 @@ function BankLogo({ bank, index }) {
         src={bank.src}
         alt={bank.name}
         className={imgClass}
+        loading="lazy"
+        decoding="async"
       />
     </div>
   )

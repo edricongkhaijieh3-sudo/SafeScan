@@ -57,6 +57,8 @@ export function NewsCards() {
                         src={item.logo}
                         alt={item.source}
                         className="h-6 sm:h-7 object-contain object-left max-w-[140px]"
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <span className="inline-flex items-center justify-center w-8 h-8 rounded bg-[#0A0A0A] text-white text-xs font-bold">

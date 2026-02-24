@@ -2,9 +2,9 @@ import { ScrollReveal } from './ScrollReveal'
 import { BankLogosMarquee } from './BankLogos'
 
 const SCAM_IMAGES = {
-  maybank: '/scam-mockup-maybank.png',
-  tng: '/scam-mockup-tng.png',
-  lhdn: '/scam-mockup-lhdn.png',
+  maybank: '/scam-mockup-maybank.webp',
+  tng: '/scam-mockup-tng.webp',
+  lhdn: '/scam-mockup-lhdn.webp',
 }
 
 const CARDS = [
@@ -61,6 +61,8 @@ export function Problem() {
                       src={SCAM_IMAGES[card.mockupKey]}
                       alt={`Example of ${card.title} scam`}
                       className="max-h-[180px] w-auto rounded-lg border border-gray-200 shadow-md object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   )}
                 </div>
