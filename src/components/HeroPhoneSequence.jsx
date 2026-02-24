@@ -262,15 +262,15 @@ export function HeroPhoneSequence() {
               {showRight && (
                 <>
                   <div
-                    className={`bg-[#ff4444]/20 border border-[#ff4444]/40 rounded-xl p-3 text-center transition-all duration-300 ${
+                    className={`bg-[#FFB800]/20 border border-[#FFB800]/50 rounded-xl p-3.5 text-center transition-all duration-300 ${
                       step >= 3 ? 'animate-pulse' : ''
                     }`}
                   >
-                    <span className="text-[#ff4444] font-bold text-xs">⚠ THREAT DETECTED</span>
+                    <span className="text-[#FFB800] font-bold text-base sm:text-lg">⚠ THREAT DETECTED</span>
                   </div>
                   <div className="space-y-1.5">
                     {s.right.lines.map((line, i) => (
-                      <div key={i} className="text-[#ff4444] font-medium text-xs min-h-[1.25rem]">
+                      <div key={i} className="text-[#FFB800] font-medium text-xs min-h-[1.25rem]">
                         <TypewriterText
                           text={line}
                           visible={showRight}
@@ -282,7 +282,7 @@ export function HeroPhoneSequence() {
                   </div>
                   <div className="flex justify-center py-3">
                     <span
-                      className={`px-6 py-2.5 rounded-xl bg-[#ff4444]/30 border border-[#ff4444] text-[#ff4444] font-bold text-base ${
+                      className={`px-6 py-2.5 rounded-xl bg-[#FFB800]/30 border border-[#FFB800] text-[#FFB800] font-bold text-base ${
                         step >= 3 ? 'animate-pulse' : ''
                       }`}
                     >
