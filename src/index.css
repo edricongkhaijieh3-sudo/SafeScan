@@ -33,13 +33,18 @@ body {
 
 @keyframes scan-line {
   0%, 100% {
-    transform: translateY(0);
+    top: 10%;
     opacity: 1;
   }
   50% {
-    transform: translateY(100%);
+    top: 90%;
     opacity: 0.8;
   }
+}
+
+.animate-scan-line {
+  animation: scan-line 1.2s ease-in-out infinite;
+  position: absolute;
 }
 
 @keyframes marquee-scroll {

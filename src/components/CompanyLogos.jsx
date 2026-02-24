@@ -9,6 +9,9 @@ const LOGOS = [
   { name: 'NVIDIA', src: '/logos/nvidia.svg' },
   { name: 'Apple', src: '/logos/apple.svg' },
   { name: 'Google', src: '/logos/google.svg' },
+  { name: 'Meta', src: '/logos/meta.svg' },
+  { name: 'Oracle', src: '/logos/oracle.svg' },
+  { name: 'Microsoft', src: '/logos/microsoft.svg' },
 ]
 
 export function CompanyLogo({ logo, index }) {
