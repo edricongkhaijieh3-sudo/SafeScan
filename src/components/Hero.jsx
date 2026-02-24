@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { ScrollReveal } from './ScrollReveal'
 import { CompanyLogosMarquee } from './CompanyLogos'
 import { HeroPhoneSequence } from './HeroPhoneSequence'
+import { UrlScanner } from './UrlScanner'
 
 export function Hero({ onWaitlistUpdate, waitlistCount = 100 }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const waitlistRef = useRef(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -44,9 +46,38 @@ export function Hero({ onWaitlistUpdate, waitlistCount = 100 }) {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             Scanguard checks every link, QR code, and file for threats before they reach your device — so you can click freely, always.
           </p>
+        </ScrollReveal>
+
+        {/* Email capture - right below hero subtext */}
+        <ScrollReveal delay={250}>
+          <div ref={waitlistRef} className="mb-16">
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@email.com"
+                  required
+                  disabled={status === 'loading'}
+                  className="flex-1 px-5 py-3.5 rounded-lg bg-[#F4F5F7] border border-gray-200 text-[#0A0A0A] placeholder-gray-400 focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC] transition-colors disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="px-6 py-3.5 rounded-lg bg-[#0052CC] text-white font-semibold hover:bg-[#0747A6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'loading' ? 'Joining...' : status === 'success' ? '✓ Joined!' : 'Join Waitlist →'}
+                </button>
+              </div>
+              <p className="text-gray-500 text-sm mt-3">
+                <span className="font-medium text-[#0052CC]">{waitlistCount}+ people</span> on the waitlist. No spam. No credit card.
+              </p>
+            </form>
+          </div>
         </ScrollReveal>
 
         {/* Phone mockups - cycling scam scenarios */}
@@ -54,6 +85,11 @@ export function Hero({ onWaitlistUpdate, waitlistCount = 100 }) {
           <div className="mb-16">
             <HeroPhoneSequence />
           </div>
+        </ScrollReveal>
+
+        {/* URL Scanner */}
+        <ScrollReveal delay={400}>
+          <UrlScanner onSignUpClick={() => waitlistRef.current?.scrollIntoView({ behavior: 'smooth' })} />
         </ScrollReveal>
 
         {/* Team credibility strip */}
@@ -67,33 +103,6 @@ export function Hero({ onWaitlistUpdate, waitlistCount = 100 }) {
             </div>
           </div>
         </div>
-
-        {/* Email capture */}
-        <ScrollReveal delay={500}>
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
-                required
-                disabled={status === 'loading'}
-                className="flex-1 px-5 py-3.5 rounded-lg bg-[#F4F5F7] border border-gray-200 text-[#0A0A0A] placeholder-gray-400 focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC] transition-colors disabled:opacity-50"
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="px-6 py-3.5 rounded-lg bg-[#0052CC] text-white font-semibold hover:bg-[#0747A6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {status === 'loading' ? 'Joining...' : status === 'success' ? '✓ Joined!' : 'Join Waitlist →'}
-              </button>
-            </div>
-            <p className="text-gray-500 text-sm mt-3">
-              <span className="font-medium text-[#0052CC]">{waitlistCount}+ people</span> on the waitlist. No spam. No credit card.
-            </p>
-          </form>
-        </ScrollReveal>
       </div>
     </section>
   )

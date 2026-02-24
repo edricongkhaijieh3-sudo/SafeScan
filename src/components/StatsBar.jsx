@@ -1,10 +1,10 @@
 import { ScrollReveal } from './ScrollReveal'
 
 const STATS = [
-  { value: '500%', label: 'Rise in QR phishing 2022–2024' },
-  { value: 'RM 21M', label: 'Avg cost of a data breach in Malaysia 2024' },
-  { value: '72%', label: 'People who click links without checking' },
-  { value: '0', label: 'Consumer tools that auto-intercept today' },
+  { value: 'RM 1.2B', label: 'Lost to scams in Malaysia 2023' },
+  { value: '66,000', label: 'Scam cases reported to PDRM 2023' },
+  { value: '1 in 3', label: 'Malaysians personally know a scam victim' },
+  { value: '#1', label: 'Maybank most impersonated bank in MY' },
 ]
 
 export function StatsBar() {

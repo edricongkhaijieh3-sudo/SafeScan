@@ -1,24 +1,30 @@
 import { ScrollReveal } from './ScrollReveal'
 import { BankLogosMarquee } from './BankLogos'
 
+const SCAM_IMAGES = {
+  maybank: '/scam-mockup-maybank.png',
+  tng: '/scam-mockup-tng.png',
+  lhdn: '/scam-mockup-lhdn.png',
+}
+
 const CARDS = [
   {
-    icon: '📱',
-    title: 'QR Code Phishing',
-    desc: 'Fake QR codes at parking meters, restaurants, and events redirect you to malicious sites silently.',
-    stat: '↑ 500% increase since 2022',
+    mockupKey: 'maybank',
+    title: 'Fake Maybank2u Links',
+    desc: 'Real-looking phishing SMS with cloned Maybank branding. “Verify your account” or “suspended” messages that link to fake login pages.',
+    stat: '↑ 312% increase in Malaysia 2024',
   },
   {
-    icon: '🔗',
-    title: 'Malicious Links',
-    desc: 'Links in texts, emails, and DMs redirect through multiple domains before reaching the payload.',
-    stat: '3.4B phishing emails sent daily',
+    mockupKey: 'tng',
+    title: "Touch 'n Go QR Scams",
+    desc: 'Fake wallet verification prompts and QR codes. “RM500 credited” or “update your details” messages that steal eWallet credentials.',
+    stat: '↑ 247% increase in Malaysia 2024',
   },
   {
-    icon: '📎',
-    title: 'Infected Files',
-    desc: 'PDFs, Word docs, and ZIPs can execute malicious code the moment you open them — even if they look legitimate.',
-    stat: '#1 malware delivery vector globally',
+    mockupKey: 'lhdn',
+    title: 'LHDN Refund Fraud',
+    desc: 'Fake tax refund QR codes and links. “Claim your MyTax refund” messages impersonating LHDN to harvest bank and NRIC details.',
+    stat: '↑ 189% increase in Malaysia 2024',
   },
 ]
 
@@ -48,11 +54,19 @@ export function Problem() {
         <div className="grid md:grid-cols-3 gap-6 mt-16">
           {CARDS.map((card, i) => (
             <ScrollReveal key={i} delay={i * 100}>
-              <div className="p-6 rounded-2xl bg-[#F4F5F7] border border-gray-200 hover:border-[#0052CC]/40 transition-colors">
-                <span className="text-3xl mb-4 block">{card.icon}</span>
+              <div className="p-6 rounded-2xl bg-[#F4F5F7] border border-gray-200 hover:border-[#0052CC]/40 transition-colors flex flex-col">
+                <div className="mb-4 min-h-[120px] flex items-center justify-center">
+                  {SCAM_IMAGES[card.mockupKey] && (
+                    <img
+                      src={SCAM_IMAGES[card.mockupKey]}
+                      alt={`Example of ${card.title} scam`}
+                      className="max-h-[180px] w-auto rounded-lg border border-gray-200 shadow-md object-contain"
+                    />
+                  )}
+                </div>
                 <h3 className="font-heading font-bold text-xl text-[#0A0A0A] mb-3">{card.title}</h3>
-                <p className="text-[#0A0A0A]/70 text-sm mb-4">{card.desc}</p>
-                <p className="text-[#00875A] text-sm font-medium">{card.stat}</p>
+                <p className="text-[#0A0A0A]/70 text-sm mb-4 flex-1">{card.desc}</p>
+                <p className="text-[#00875A] text-sm font-medium mt-4 pt-4 border-t border-gray-200">{card.stat}</p>
               </div>
             </ScrollReveal>
           ))}
