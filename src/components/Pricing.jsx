@@ -29,8 +29,8 @@ export function Pricing() {
     <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <span className="text-[#00c4ff] text-sm font-semibold tracking-wider uppercase">Pricing — Tell Us What Feels Right</span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-white mt-4 mb-6">
+          <span className="text-[#0052CC] text-sm font-semibold tracking-wider uppercase">Pricing — Tell Us What Feels Right</span>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-[#0A0A0A] mt-4 mb-6">
             Simple, honest pricing. We're still deciding — your input matters.
           </h2>
         </ScrollReveal>
@@ -40,21 +40,21 @@ export function Pricing() {
             <ScrollReveal key={i} delay={i * 100}>
               <div
                 className={`p-8 rounded-2xl border ${
-                  plan.highlighted ? 'bg-[#00ff87]/5 border-[#00ff87]/40' : 'bg-white/[0.03] border-white/10'
+                  plan.highlighted ? 'bg-[#0052CC]/5 border-[#0052CC]/40' : 'bg-[#F4F5F7] border-gray-200'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <h3 className="font-heading font-bold text-xl text-white">{plan.name}</h3>
-                  {plan.highlighted && <span className="text-xs text-[#00ff87]">⭐</span>}
+                  <h3 className="font-heading font-bold text-xl text-[#0A0A0A]">{plan.name}</h3>
+                  {plan.highlighted && <span className="text-xs text-[#0052CC]">⭐</span>}
                 </div>
                 <div className="mb-6">
-                  <span className="font-heading font-bold text-3xl text-white">{plan.price}</span>
-                  <span className="text-white/60">{plan.period}</span>
+                  <span className="font-heading font-bold text-3xl text-[#0A0A0A]">{plan.price}</span>
+                  <span className="text-gray-600">{plan.period}</span>
                 </div>
                 <ul className="space-y-3">
                   {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-white/80 text-sm">
-                      <span className="text-[#00ff87]">✓</span>
+                    <li key={j} className="flex items-center gap-2 text-gray-700 text-sm">
+                      <span className="text-[#00875A]">✓</span>
                       {f}
                     </li>
                   ))}
@@ -65,9 +65,9 @@ export function Pricing() {
         </div>
 
         <ScrollReveal delay={400}>
-          <div className="mt-12 p-6 rounded-2xl bg-[#00c4ff]/10 border border-[#00c4ff]/30">
-            <p className="text-white/90">
-              <span className="text-[#00c4ff]">💡</span> These are our working assumptions. After submitting the survey above, tell us which plan you'd actually pay for — it directly influences what we launch with.
+          <div className="mt-12 p-6 rounded-2xl bg-[#0052CC]/5 border border-[#0052CC]/20">
+            <p className="text-[#0A0A0A]/90">
+              <span className="text-[#0052CC]">💡</span> These are our working assumptions. After submitting the survey above, tell us which plan you'd actually pay for — it directly influences what we launch with.
             </p>
           </div>
         </ScrollReveal>

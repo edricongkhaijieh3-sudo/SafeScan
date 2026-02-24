@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #080c10;
-  --color-accent: #00ff87;
-  --color-secondary: #00c4ff;
-  --color-danger: #ff4444;
+  --color-bg: #ffffff;
+  --color-text: #0a0a0a;
+  --color-primary: #0052cc;
+  --color-success: #00875a;
+  --color-danger: #de350b;
+  --color-cards: #f4f5f7;
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
 }
@@ -24,8 +26,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #080c10;
-  color: rgba(255, 255, 255, 0.9);
+  background-color: #ffffff;
+  color: #0a0a0a;
   font-family: "DM Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,4 +60,8 @@ body {
 
 .animate-marquee {
   animation: marquee-scroll 30s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee-scroll 25s linear infinite;
 }

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { ScrollReveal } from './ScrollReveal'
 
-export function FinalCTA({ onWaitlistUpdate }) {
+export function FinalCTA({ onWaitlistUpdate, waitlistCount = 100 }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
 
@@ -29,11 +29,11 @@ export function FinalCTA({ onWaitlistUpdate }) {
     <section className="py-24 px-6" id="waitlist">
       <div className="max-w-2xl mx-auto text-center">
         <ScrollReveal>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-6">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-[#0A0A0A] mb-6">
             Be first in line.
           </h2>
-          <p className="text-white/70 text-lg mb-12">
-            We're building Scanguard for people who want to scan anything without hesitation. Join the waitlist and we'll personally reach out to early members.
+          <p className="text-gray-600 text-lg mb-12">
+            We're building Scanguard for people who want to scan anything without hesitation. <span className="font-semibold text-[#0052CC]">{waitlistCount}+ people</span> already joined. We'll personally reach out to early members.
           </p>
         </ScrollReveal>
 
@@ -46,12 +46,12 @@ export function FinalCTA({ onWaitlistUpdate }) {
               placeholder="you@email.com"
               required
               disabled={status === 'loading'}
-              className="flex-1 px-5 py-3.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-[#00ff87] focus:ring-1 focus:ring-[#00ff87] transition-colors disabled:opacity-50"
+              className="flex-1 px-5 py-3.5 rounded-lg bg-[#F4F5F7] border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC] transition-colors disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="px-6 py-3.5 rounded-lg bg-[#00ff87] text-[#080c10] font-semibold hover:bg-[#00e078] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              className="px-6 py-3.5 rounded-lg bg-[#0052CC] text-white font-semibold hover:bg-[#0747A6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
               {status === 'loading' ? 'Joining...' : status === 'success' ? '✓ Joined!' : 'Claim Early Access →'}
             </button>

@@ -47,9 +47,9 @@ export function Survey({ onWaitlistUpdate }) {
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-[#00ff87]/10 border border-[#00ff87]/30">
-              <span className="text-[#00ff87] text-2xl">✓</span>
-              <p className="text-white font-medium">Thank you! You're on the early access list. We'll reach out personally.</p>
+            <div className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-[#00875A]/10 border border-[#00875A]/30">
+              <span className="text-[#00875A] text-2xl">✓</span>
+              <p className="text-[#0A0A0A] font-medium">Thank you! You're on the early access list. We'll reach out personally.</p>
             </div>
           </ScrollReveal>
         </div>
@@ -61,17 +61,17 @@ export function Survey({ onWaitlistUpdate }) {
     <section className="py-24 px-6" id="survey">
       <div className="max-w-2xl mx-auto">
         <ScrollReveal>
-          <span className="text-[#00c4ff] text-sm font-semibold tracking-wider uppercase">Quick Survey — Help Us Build This For You</span>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white mt-4 mb-4">
+          <span className="text-[#0052CC] text-sm font-semibold tracking-wider uppercase">Quick Survey — Help Us Build This For You</span>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#0A0A0A] mt-4 mb-4">
             We have 3 questions. Takes 60 seconds.
           </h2>
-          <p className="text-white/70 mb-12">Your answers directly shape what we build first.</p>
+          <p className="text-gray-600 mb-12">Your answers directly shape what we build first.</p>
         </ScrollReveal>
 
         <div className="space-y-10">
           <ScrollReveal delay={100}>
             <div>
-              <p className="text-white font-medium mb-3">How often do you receive a link or QR code you're not 100% sure about?</p>
+              <p className="text-gray-900 font-medium mb-3">How often do you receive a link or QR code you're not 100% sure about?</p>
               <div className="flex flex-wrap gap-2">
                 {Q1_OPTIONS.map((opt) => (
                   <button
@@ -79,7 +79,7 @@ export function Survey({ onWaitlistUpdate }) {
                     type="button"
                     onClick={() => setQ1(opt)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      q1 === opt ? 'bg-[#00ff87] text-[#080c10]' : 'bg-white/5 text-white/80 hover:bg-white/10 border border-white/10'
+                      q1 === opt ? 'bg-[#0052CC] text-white' : 'bg-[#F4F5F7] text-[#0A0A0A] hover:bg-gray-200 border border-gray-200'
                     }`}
                   >
                     {opt}
@@ -91,7 +91,7 @@ export function Survey({ onWaitlistUpdate }) {
 
           <ScrollReveal delay={200}>
             <div>
-              <p className="text-white font-medium mb-3">What do you currently do when you get a suspicious link or QR code?</p>
+              <p className="text-gray-900 font-medium mb-3">What do you currently do when you get a suspicious link or QR code?</p>
               <div className="flex flex-wrap gap-2">
                 {Q2_OPTIONS.map((opt) => (
                   <button
@@ -99,7 +99,7 @@ export function Survey({ onWaitlistUpdate }) {
                     type="button"
                     onClick={() => setQ2(opt)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      q2 === opt ? 'bg-[#00ff87] text-[#080c10]' : 'bg-white/5 text-white/80 hover:bg-white/10 border border-white/10'
+                      q2 === opt ? 'bg-[#0052CC] text-white' : 'bg-[#F4F5F7] text-[#0A0A0A] hover:bg-gray-200 border border-gray-200'
                     }`}
                   >
                     {opt}
@@ -111,7 +111,7 @@ export function Survey({ onWaitlistUpdate }) {
 
           <ScrollReveal delay={300}>
             <div>
-              <p className="text-white font-medium mb-3">If Scanguard checked everything automatically in under 2 seconds, what would you pay per month?</p>
+              <p className="text-gray-900 font-medium mb-3">If Scanguard checked everything automatically in under 2 seconds, what would you pay per month?</p>
               <div className="flex flex-wrap gap-2">
                 {Q3_OPTIONS.map((opt) => (
                   <button
@@ -119,7 +119,7 @@ export function Survey({ onWaitlistUpdate }) {
                     type="button"
                     onClick={() => setQ3(opt)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      q3 === opt ? 'bg-[#00ff87] text-[#080c10]' : 'bg-white/5 text-white/80 hover:bg-white/10 border border-white/10'
+                      q3 === opt ? 'bg-[#0052CC] text-white' : 'bg-[#F4F5F7] text-[#0A0A0A] hover:bg-gray-200 border border-gray-200'
                     }`}
                   >
                     {opt}
@@ -133,7 +133,7 @@ export function Survey({ onWaitlistUpdate }) {
             <ScrollReveal delay={400}>
               <form onSubmit={handleSubmit} className="space-y-6 pt-4">
                 <div>
-                  <label htmlFor="survey-email" className="block text-white font-medium mb-2">Your email *</label>
+                  <label htmlFor="survey-email" className="block text-gray-900 font-medium mb-2">Your email *</label>
                   <input
                     id="survey-email"
                     type="email"
@@ -142,11 +142,11 @@ export function Survey({ onWaitlistUpdate }) {
                     placeholder="you@email.com"
                     required
                     disabled={status === 'loading'}
-                    className="w-full px-5 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-[#00ff87] focus:ring-1 focus:ring-[#00ff87] transition-colors disabled:opacity-50"
+                    className="w-full px-5 py-3 rounded-lg bg-[#F4F5F7] border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC] transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
-                  <label htmlFor="survey-feedback" className="block text-white font-medium mb-2">Anything else you want us to know? (optional)</label>
+                  <label htmlFor="survey-feedback" className="block text-gray-900 font-medium mb-2">Anything else you want us to know? (optional)</label>
                   <textarea
                     id="survey-feedback"
                     value={feedback}
@@ -154,13 +154,13 @@ export function Survey({ onWaitlistUpdate }) {
                     placeholder="Your feedback..."
                     rows={3}
                     disabled={status === 'loading'}
-                    className="w-full px-5 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-[#00ff87] focus:ring-1 focus:ring-[#00ff87] transition-colors disabled:opacity-50 resize-none"
+                    className="w-full px-5 py-3 rounded-lg bg-[#F4F5F7] border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#0052CC] focus:ring-1 focus:ring-[#0052CC] transition-colors disabled:opacity-50 resize-none"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-4 rounded-lg bg-[#00ff87] text-[#080c10] font-semibold hover:bg-[#00e078] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 rounded-lg bg-[#0052CC] text-white font-semibold hover:bg-[#0747A6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? 'Submitting...' : 'Submit & Join Waitlist →'}
                 </button>

@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
@@ -10,28 +10,45 @@ import { Pricing } from './components/Pricing'
 import { FinalCTA } from './components/FinalCTA'
 import { Footer } from './components/Footer'
 
+const WAITLIST_SEED = 100 // Base number so count always looks believable
+
 function App() {
+  const [waitlistCount, setWaitlistCount] = useState(null)
+
   const fetchCount = useCallback(async () => {
     if (supabase) {
       try {
-        await supabase.from('waitlist').select('*', { count: 'exact', head: true })
+        const { count, error } = await supabase.from('waitlist').select('*', { count: 'exact', head: true })
+        if (!error && count !== null) {
+          setWaitlistCount(WAITLIST_SEED + count)
+        }
       } catch {
         // Ignore
       }
     }
   }, [])
 
+  useEffect(() => {
+    if (supabase) {
+      fetchCount()
+    } else {
+      setWaitlistCount(WAITLIST_SEED)
+    }
+  }, [fetchCount])
+
+  const displayCount = waitlistCount ?? WAITLIST_SEED
+
   return (
-    <div className="min-h-screen bg-[#080c10]" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <div className="min-h-screen bg-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
       <Nav />
       <main>
-        <Hero onWaitlistUpdate={fetchCount} />
+        <Hero onWaitlistUpdate={fetchCount} waitlistCount={displayCount} />
         <StatsBar />
         <Problem />
         <HowItWorks />
         <Survey onWaitlistUpdate={fetchCount} />
         <Pricing />
-        <FinalCTA onWaitlistUpdate={fetchCount} />
+        <FinalCTA onWaitlistUpdate={fetchCount} waitlistCount={displayCount} />
         <Footer />
       </main>
     </div>

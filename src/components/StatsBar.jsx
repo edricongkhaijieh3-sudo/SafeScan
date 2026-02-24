@@ -9,14 +9,14 @@ const STATS = [
 
 export function StatsBar() {
   return (
-    <section className="py-16 px-6 bg-white/[0.02] border-y border-white/5">
+    <section className="py-16 px-6 bg-[#F4F5F7] border-y border-gray-200">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {STATS.map((stat, i) => (
             <ScrollReveal key={i} delay={i * 100}>
               <div className="text-center">
-                <div className="font-heading font-bold text-3xl sm:text-4xl text-[#00ff87] mb-2">{stat.value}</div>
-                <div className="text-white/60 text-sm">{stat.label}</div>
+                <div className="font-heading font-bold text-3xl sm:text-4xl text-[#0052CC] mb-2">{stat.value}</div>
+                <div className="text-[#0A0A0A]/70 text-sm">{stat.label}</div>
               </div>
             </ScrollReveal>
           ))}

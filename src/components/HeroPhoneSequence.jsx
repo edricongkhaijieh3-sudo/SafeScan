@@ -33,7 +33,7 @@ function TypewriterText({ text, visible, delay = 0, resetKey }) {
       } else {
         clearInterval(interval)
       }
-    }, 25)
+    }, 40)
     return () => clearInterval(interval)
   }, [started, text])
 
@@ -67,12 +67,12 @@ export function HeroPhoneSequence() {
   const SCENARIOS = {
     0: {
       left: {
-        title: 'Messages',
+        title: 'WhatsApp',
         from: '+60 19-238 4721',
         badge: '1 new message',
         messageBeforeLink: '[MAYBANK2U] Anda perlu mengesahkan akaun anda dalam masa 24 jam atau akaun akan dibekukan. Klik: ',
         link: 'maybank2u-secure.net/verify',
-        style: 'iMessage',
+        style: 'whatsapp',
       },
       center: {
         text1: 'Analysing link...',
@@ -111,7 +111,7 @@ export function HeroPhoneSequence() {
   const showRight = step >= 2
   const isQRScenario = scenario === 1
   const centerPhase = isQRScenario
-    ? (step >= 1 && step <= 2 ? Math.min(2, Math.max(0, Math.floor((cycleTime - STEP_BOUNDARIES[1]) / 1067))) : -1)
+    ? (step >= 1 && step <= 2 ? Math.min(2, Math.max(0, Math.floor((cycleTime - STEP_BOUNDARIES[1]) / ((STEP_BOUNDARIES[2] - STEP_BOUNDARIES[1]) / 3)))) : -1)
     : (step === 1 ? 0 : step === 2 ? 1 : -1)
   const centerText = isQRScenario && s.center.texts
     ? s.center.texts[Math.min(centerPhase, s.center.texts.length - 1)]
@@ -120,14 +120,14 @@ export function HeroPhoneSequence() {
 
   return (
     <div className="mb-6">
-      <div className={`flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 transition-opacity duration-500 ${isFadingOut ? 'opacity-40' : 'opacity-100'}`}>
+      <div className={`flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 transition-opacity duration-500 ${isFadingOut ? 'opacity-40' : 'opacity-100'}`}>
       {/* Left phone */}
-      <div className="relative w-[280px] sm:w-[300px]">
-        <div className="rounded-[2.5rem] border-2 border-white/10 bg-[#0d1117] p-2 shadow-2xl transition-all">
-          <div className="rounded-[2rem] overflow-hidden bg-[#1a1a1a] h-[560px] flex flex-col">
+      <div className="relative w-[200px] sm:w-[240px] md:w-[260px] lg:w-[280px] shrink-0">
+        <div className="rounded-[2rem] sm:rounded-[2.5rem] border-2 border-white/10 bg-[#0d1117] p-1.5 sm:p-2 shadow-2xl transition-all">
+          <div className="rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden bg-[#1a1a1a] h-[400px] sm:h-[460px] md:h-[500px] lg:h-[560px] flex flex-col">
             {s.left.type === 'camera' ? (
               <>
-                <div className="h-12 flex-shrink-0 flex items-center justify-center border-b border-white/10">
+                <div className="h-10 sm:h-12 flex-shrink-0 flex items-center justify-center border-b border-white/10">
                   <span className="text-white font-medium text-sm">Camera</span>
                 </div>
                 <div className="flex-1 min-h-0 flex flex-col items-center justify-center p-6 bg-black/60">
@@ -142,7 +142,7 @@ export function HeroPhoneSequence() {
                       </svg>
                     </div>
                     {/* QR code pattern */}
-                    <div className="absolute w-32 h-32 bg-white p-1.5">
+                    <div className="absolute w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white p-1 sm:p-1.5">
                       <svg viewBox="0 0 25 25" className="w-full h-full">
                         <rect width="25" height="25" fill="white" />
                         <rect x="1" y="1" width="7" height="7" fill="black" />
@@ -177,10 +177,10 @@ export function HeroPhoneSequence() {
               </>
             ) : (
               <>
-                <div className="h-12 flex items-center justify-center border-b border-white/10 relative">
-                  <div className="w-20 h-1 rounded-full bg-white/30" />
+                <div className="h-10 sm:h-12 flex items-center justify-center border-b border-white/10 relative">
+                  <div className="w-20 h-1 rounded-full bg-gray-300" />
                   {s.left.badge && (
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#00c4ff] font-medium">
+                    <span className="absolute right-4 top-[calc(50%+6px)] -translate-y-1/2 text-xs text-[#00c4ff] font-medium">
                       {s.left.badge}
                     </span>
                   )}
@@ -196,8 +196,8 @@ export function HeroPhoneSequence() {
                       </p>
                     </div>
                     {(step === 0 || step === 1) && (
-                      <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none" style={{ animationDuration: '1.5s' }}>
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="rgba(255,255,255,0.95)" className="drop-shadow-lg">
+                      <div className="absolute top-full mt-2 sm:mt-3 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none" style={{ animationDuration: '1.5s' }}>
+                        <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.95)" className="w-9 h-9 sm:w-12 sm:h-12 drop-shadow-lg">
                           <path d="M12 2L8 8h3v10c0 1.1.9 2 2 2s2-.9 2-2V8h3L12 2z"/>
                         </svg>
                       </div>
@@ -211,52 +211,52 @@ export function HeroPhoneSequence() {
       </div>
 
       {/* Center - Scanguard */}
-      <div className="relative flex flex-col items-center justify-center min-h-[200px]">
+      <div className="relative flex flex-col items-center justify-center min-h-[120px] sm:min-h-[160px] md:min-h-[200px]">
         <div
           className={`relative flex flex-col items-center transition-all duration-500 ${
             showCenter ? 'opacity-100 scale-100' : 'opacity-40 scale-95'
           }`}
         >
           <div
-            className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${
-              showCenter ? 'bg-[#00ff87]/20 shadow-[0_0_30px_rgba(0,255,135,0.5)]' : 'bg-white/5'
+            className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-500 ${
+              showCenter ? 'bg-[#0A0A0A]/10 ring-2 ring-[#0A0A0A]/30' : 'bg-[#0A0A0A]/5'
             }`}
           >
             {showCenter && step === 1 ? (
-              <div className="w-10 h-10 border-2 border-[#00ff87] border-t-transparent rounded-full animate-spin" />
+              <div className="w-10 h-10 rounded-full animate-spin" style={{ border: '3px solid #0A0A0A', borderTopColor: 'transparent' }} />
             ) : showCenter && step === 2 ? (
-              <div className="w-10 h-10 border-2 border-[#00ff87] border-t-transparent rounded-full animate-spin" />
+              <div className="w-10 h-10 rounded-full animate-spin" style={{ border: '3px solid #0A0A0A', borderTopColor: 'transparent' }} />
             ) : (
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00ff87" strokeWidth="2">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
             )}
           </div>
           {showCenter && (
-            <p className="text-[#00ff87] text-xs font-medium mt-3 text-center min-h-[2rem]">
+            <p className="text-[#0A0A0A] text-sm sm:text-base font-semibold mt-3 text-center min-h-[2rem]">
               {centerText}
             </p>
           )}
-          <span className="text-xs font-medium mt-1 text-[#00ff87]/80">Scanguard</span>
+          <span className="text-lg sm:text-xl font-bold mt-2 text-[#0A0A0A]">Scanguard</span>
         </div>
       </div>
 
       {/* Right phone */}
       <div
-        className={`relative w-[280px] sm:w-[300px] transition-all duration-500 ${
+        className={`relative w-[200px] sm:w-[240px] md:w-[260px] lg:w-[280px] shrink-0 transition-all duration-500 ${
           showRight && step >= 3 ? 'animate-pulse' : ''
         }`}
       >
         <div
-          className={`rounded-[2.5rem] border-2 p-2 shadow-2xl transition-all duration-500 ${
+          className={`rounded-[2rem] sm:rounded-[2.5rem] border-2 p-1.5 sm:p-2 shadow-2xl transition-all duration-500 ${
             showRight
               ? 'border-[#ff4444]/50 bg-[#0d1117] shadow-[0_0_40px_rgba(255,68,68,0.3)]'
-              : 'border-white/10 bg-[#0d1117]'
+              : 'border-gray-300 bg-[#0d1117]'
           }`}
         >
-          <div className="rounded-[2rem] overflow-hidden bg-[#1a1a1a] h-[560px]">
-            <div className="h-12 flex items-center justify-center border-b border-white/10">
-              <div className="w-20 h-1 rounded-full bg-white/30" />
+          <div className="rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden bg-[#1a1a1a] h-[400px] sm:h-[460px] md:h-[500px] lg:h-[560px]">
+            <div className="h-10 sm:h-12 flex items-center justify-center border-b border-white/10">
+              <div className="w-20 h-1 rounded-full bg-gray-300" />
             </div>
             <div className="p-4 space-y-3 font-body text-sm">
               {showRight && (
@@ -304,12 +304,12 @@ export function HeroPhoneSequence() {
       <div className="flex justify-center gap-2 mt-6">
         <div
           className={`w-2 h-2 rounded-full transition-all duration-300 ${
-            scenario === 0 ? 'bg-[#00ff87] scale-125' : 'bg-white/30'
+            scenario === 0 ? 'bg-[#00ff87] scale-125' : 'bg-gray-300'
           }`}
         />
         <div
           className={`w-2 h-2 rounded-full transition-all duration-300 ${
-            scenario === 1 ? 'bg-[#00ff87] scale-125' : 'bg-white/30'
+            scenario === 1 ? 'bg-[#00ff87] scale-125' : 'bg-gray-300'
           }`}
         />
       </div>
