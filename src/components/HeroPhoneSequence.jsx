@@ -250,7 +250,7 @@ export function HeroPhoneSequence() {
         <div
           className={`rounded-[2rem] sm:rounded-[2.5rem] border-2 p-1.5 sm:p-2 shadow-2xl transition-all duration-500 ${
             showRight
-              ? 'border-[#ff4444]/50 bg-[#0d1117] shadow-[0_0_40px_rgba(255,68,68,0.3)]'
+              ? 'border-[#ff4444]/50 bg-[#0d1117] shadow-[0_0_40px_rgba(245,200,66,0.3)]'
               : 'border-gray-300 bg-[#0d1117]'
           }`}
         >
