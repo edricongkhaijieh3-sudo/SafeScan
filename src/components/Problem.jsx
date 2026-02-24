@@ -1,4 +1,5 @@
 import { ScrollReveal } from './ScrollReveal'
+import { BankLogosMarquee } from './BankLogos'
 
 const CARDS = [
   {
@@ -33,6 +34,15 @@ export function Problem() {
           <p className="text-white/70 text-lg max-w-2xl">
             QR codes at restaurants, links in your messages, files from colleagues — any of them could be compromised.
           </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={100}>
+          <p className="text-white/50 text-sm mt-8 mb-4">Phishing often impersonates trusted brands — including banks like</p>
+          <div className="relative overflow-hidden py-4 mb-8">
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#080c10] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#080c10] to-transparent z-10 pointer-events-none" />
+            <BankLogosMarquee />
+          </div>
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-6 mt-16">

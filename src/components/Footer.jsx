@@ -10,10 +10,10 @@ export function Footer() {
           <p className="text-white/50 text-sm mt-1">Scan anything. Fear nothing.</p>
         </div>
         <p className="text-white/50 text-sm text-center md:text-right">
-          Building in public. Questions? <a href="mailto:hello@safescan.app" className="text-[#00ff87] hover:underline">hello@safescan.app</a>
+          Building in public. Questions? <a href="mailto:scanguard@gmail.com" className="text-[#00ff87] hover:underline">Scanguard@gmail.com</a>
         </p>
       </div>
-      <p className="text-white/30 text-xs text-center mt-8">© 2026 SafeScan. No data stored. No tracking.</p>
+      <p className="text-white/30 text-xs text-center mt-8">© 2026 Scanguard. No data stored. No tracking.</p>
     </footer>
   )
 }

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { ScrollReveal } from './ScrollReveal'
 
-export function FinalCTA({ waitlistCount, onWaitlistUpdate }) {
+export function FinalCTA({ onWaitlistUpdate }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
 
@@ -33,7 +33,7 @@ export function FinalCTA({ waitlistCount, onWaitlistUpdate }) {
             Be first in line.
           </h2>
           <p className="text-white/70 text-lg mb-12">
-            We're building SafeScan for people who want to scan anything without hesitation. Join the waitlist and we'll personally reach out to early members.
+            We're building Scanguard for people who want to scan anything without hesitation. Join the waitlist and we'll personally reach out to early members.
           </p>
         </ScrollReveal>
 
@@ -56,9 +56,6 @@ export function FinalCTA({ waitlistCount, onWaitlistUpdate }) {
               {status === 'loading' ? 'Joining...' : status === 'success' ? '✓ Joined!' : 'Claim Early Access →'}
             </button>
           </form>
-          <p className="text-white/40 text-sm mt-4">
-            Join <span className="text-[#00ff87] font-semibold">{waitlistCount ?? 0}</span> people already on the waitlist
-          </p>
         </ScrollReveal>
       </div>
     </section>

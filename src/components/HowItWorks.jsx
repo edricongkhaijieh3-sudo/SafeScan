@@ -4,7 +4,7 @@ const STEPS = [
   {
     icon: '📷',
     title: 'Scan or Share',
-    desc: "Use SafeScan's camera for QR codes, or share any link/file from any app",
+    desc: "Use Scanguard's camera for QR codes, or share any link/file from any app",
   },
   {
     icon: '🔬',

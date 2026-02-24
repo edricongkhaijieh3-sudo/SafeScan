@@ -1,4 +1,4 @@
-# SafeScan — Customer Development Landing Page
+# Scanguard — Customer Development Landing Page
 
 **Scan Anything. Fear Nothing.** A mobile app that automatically checks QR codes, links, and files for threats before they reach your device.
 

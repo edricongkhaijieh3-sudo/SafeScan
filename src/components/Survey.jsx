@@ -111,7 +111,7 @@ export function Survey({ onWaitlistUpdate }) {
 
           <ScrollReveal delay={300}>
             <div>
-              <p className="text-white font-medium mb-3">If SafeScan checked everything automatically in under 2 seconds, what would you pay per month?</p>
+              <p className="text-white font-medium mb-3">If Scanguard checked everything automatically in under 2 seconds, what would you pay per month?</p>
               <div className="flex flex-wrap gap-2">
                 {Q3_OPTIONS.map((opt) => (
                   <button
